@@ -1,8 +1,6 @@
 {
-  "name": "ChatApp",
-  "app_id": "",
-  "type": "ionic-angular",
-  "integrations": {
-    "cordova": {}
-  }
+  "name": "StuPla",
+  "app_id": "eac1ff93",
+  "integrations": {},
+  "type": "ionic-angular"
 }

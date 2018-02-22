@@ -1,4 +1,4 @@
-// http://ionicframework.com/docs/theming/
+// http://ionicframework.com/docs/v2/theming/
 
 
 // App Global Sass
@@ -14,3 +14,30 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.pages {
+    //padding: 20px;
+    font-family: Helvetica;
+    font-size: large;
+    font-style: italic;
+    text-align: center;
+    color: #EC7263; //coral
+}
+
+.title {
+    text-align: left; 
+    margin-left: 0px;
+    padding-left: 0px;
+    color: white;
+    font-size: large; 
+}
+
+// Hide scrollbar adapted from 
+//http://stackoverflow.com/questions/35952538/how-can-i-disable-or-hide-the-scrollbar-within-an-ionic-2-ion-content
+.no-scroll .scroll-content{
+     overflow: hidden;
+}
+
+ion-navbar {
+    font-family: Arial, Helvetica, sans-serif;
+}
