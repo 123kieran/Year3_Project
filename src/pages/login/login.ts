@@ -41,7 +41,7 @@ export class LogIn {
 
     // Get Database name - Firebase doesn't allow $ [ ] # @ . chars, got rid of @ too
     // can't have [] within character class[$#@\.] for replacing so just took it out, [] aren't valid in emails anyway (from quick online research)
-    let newemail = email.replace(/[$#@\.]/g, ",").toLowerCase(); // commas aren't valid in any email address but are allowed in firebase, credit to http://stackoverflow.com/questions/31904123/good-way-to-replace-invalid-characters-in-firebase-keys
+   let newemail = email.replace(/[$#@\.]/g, ",").toLowerCase(); // commas aren't valid in any email address but are allowed in firebase, credit to http://stackoverflow.com/questions/31904123/good-way-to-replace-invalid-characters-in-firebase-keys
     // Replace multiple chars in one go adapted from http://stackoverflow.com/questions/16576983/replace-multiple-characters-in-one-replace-call
     // toLowerCase used to prevent duplicate databases - emails aren't case sensitive, firebase DB names are
  
@@ -53,7 +53,7 @@ export class LogIn {
       this.loader.dismiss();
       this.navCtrl.setRoot(Home);
       this.navCtrl.push(Home, {
-          email, newemail //push the email and database name (newemail) to assignments page for reference
+          email, newemail //push the email and database name (newemail) to home page for reference
       });
     }).catch((error) => {
       this.showError(error); // if log in is unsuccessful show error
