@@ -5,6 +5,8 @@ import { MyApp } from './app.component';
 import { Home } from '../pages/home/home';
 import { LogIn } from '../pages/login/login';
 import { CreateUser } from '../pages/create-user/create-user';
+import { TabsPage } from '../pages/tabs/tabs';
+import { AboutPage } from '../pages/about/about';
 
 // Firebase / AngularFire2 Stuff
 // Adapted from https://www.joshmorony.com/building-a-crud-ionic-2-application-with-firebase-angularfire/
@@ -31,6 +33,8 @@ export const firebaseConfig = {
     Home,
     LogIn,
     CreateUser,
+    TabsPage,
+    AboutPage,
 
   ],
   imports: [
@@ -43,6 +47,8 @@ export const firebaseConfig = {
     Home,
     LogIn,
     CreateUser,
+    TabsPage,
+    AboutPage,
  
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler} ]
