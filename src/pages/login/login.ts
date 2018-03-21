@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Platform, NavController, NavParams, AlertController, LoadingController, ToastController } from 'ionic-angular';
 import { AngularFireAuth, AuthProviders, AuthMethods } from 'angularfire2';
-import { Home } from '../home/home';
+//import { Home } from '../home/home';
 import { CreateUser } from '../create-user/create-user';
 
 import firebase from 'firebase'; // for password reset
@@ -17,6 +17,8 @@ import { TabsPage } from '../tabs/tabs';
   templateUrl: 'login.html'
 })
 export class LogIn {
+
+  newemail: string = '';
 
   loader: any;
   public user = {email: '', password: ''};

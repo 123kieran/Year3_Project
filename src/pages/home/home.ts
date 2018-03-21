@@ -1,21 +1,53 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController, LoadingController, ToastController } from 'ionic-angular';
-import { AngularFireAuth } from 'angularfire2';
-import { LogIn } from '../login/login';
+import {  NavController, NavParams } from 'ionic-angular';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 
-/*
-  Generated class for the CreateUser page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
+ 
+//@IonicPage()
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
 })
 export class Home {
+  newemail : string='' ;
+  message : string = '';
+  s;
+  _chatSubscription;
+  messages:string[];
 
-  
 
+  constructor(public db:AngularFireDatabase,public navCtrl: NavController, public navParams: NavParams){
+    this.newemail = this.navParams.get('newemail');
+  this._chatSubscription = this.db.list('/home').subscribe(data =>{
+    this.messages=data;
+    });
+}
+
+sendMessage() {
+     this.db.list('/home').push({
+      newemail: this.newemail,
+       message: this.message
+     }).then( () =>{
+      //message  is sent
+     }).catch( () =>{
+      //error
+    });
+    this.message='';
+   }
+
+   ionViewDidLoad(){
+     this.db.list('/home').push({
+     specialMessage: true,
+  //   message: `${this.newemail} has joined the room`
+   });
+}
+
+  ionViewWillLeave() {
+    this._chatSubscription.unsubscribe();
+    this.db.list('/home').push({
+      specialMessage: true,
+    //  message: `${this.newemail} has left the room`
+    });
+    }
 }
