@@ -6,7 +6,7 @@ import { CreateUser } from '../create-user/create-user';
 
 import firebase from 'firebase'; // for password reset
 import { TabsPage } from '../tabs/tabs';
-
+import { Home } from '../home/home';
 // AngularFireAuth allows log in / sign up features
 
 // Log In functions adapted from 
@@ -54,9 +54,9 @@ export class LogIn {
         method: AuthMethods.Password
     }).then((authData) => {
       this.loader.dismiss();
-      this.navCtrl.setRoot(TabsPage);
-      this.navCtrl.push(TabsPage, {
-          email, newemail //push the email and database name (newemail) to home page for reference
+      this.navCtrl.setRoot(Home);
+      this.navCtrl.push(Home, {
+        newemail:  this.newemail //push the email and database name (newemail) to home page for reference
       });
     }).catch((error) => {
       this.showError(error); // if log in is unsuccessful show error
