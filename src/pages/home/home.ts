@@ -10,7 +10,7 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
   templateUrl: 'home.html',
 })
 export class Home {
-  newemail : string='' ;
+  public user = {email: ''};
   message : string = '';
   s;
   _chatSubscription;
@@ -18,7 +18,7 @@ export class Home {
 
 
   constructor(public db:AngularFireDatabase,public navCtrl: NavController, public navParams: NavParams){
-    this.newemail = this.navParams.get('newemail');
+    this.user.email = this.navParams.get('email');
   this._chatSubscription = this.db.list('/home').subscribe(data =>{
     this.messages=data;
     });
@@ -26,7 +26,7 @@ export class Home {
 
 sendMessage() {
      this.db.list('/home').push({
-      newemail: this.newemail,
+      user: this.user.email,
        message: this.message
      }).then( () =>{
       //message  is sent
@@ -39,7 +39,7 @@ sendMessage() {
    ionViewDidLoad(){
      this.db.list('/home').push({
      specialMessage: true,
-     message: `${this.newemail} has joined the room`
+     message: `${this.user.email} has joined the room`
    });
 }
 
@@ -47,7 +47,7 @@ sendMessage() {
     this._chatSubscription.unsubscribe();
     this.db.list('/home').push({
       specialMessage: true,
-      message: `${this.newemail} has left the room`
+      message: `${this.user.email} has left the room`
     });
     }
 }

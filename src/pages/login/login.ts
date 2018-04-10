@@ -54,9 +54,9 @@ export class LogIn {
         method: AuthMethods.Password
     }).then((authData) => {
       this.loader.dismiss();
-      this.navCtrl.setRoot(Home);
+      this.navCtrl.setRoot(TabsPage,Home);
       this.navCtrl.push(Home, {
-        newemail:  this.newemail //push the email and database name (newemail) to home page for reference
+        email, newemail //push the email and database name (newemail) to home page for reference
       });
     }).catch((error) => {
       this.showError(error); // if log in is unsuccessful show error
