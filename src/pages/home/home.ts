@@ -11,10 +11,12 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 })
 export class Home {
   public user = {email: ''};
+ // user : string = '';
   message : string = '';
   s;
   _chatSubscription;
   messages:string[];
+  
 
 
   constructor(public db:AngularFireDatabase,public navCtrl: NavController, public navParams: NavParams){
@@ -26,7 +28,7 @@ export class Home {
 
 sendMessage() {
      this.db.list('/home').push({
-      user: this.user.email,
+      email: this.user.email,
        message: this.message
      }).then( () =>{
       //message  is sent
