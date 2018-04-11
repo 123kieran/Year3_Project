@@ -39,18 +39,4 @@ sendMessage() {
     this.message='';
    }
 
-   ionViewDidLoad(){
-     this.db.list('/home').push({
-     specialMessage: true,
-     message: `${this.email} is active`
-   });
-}
-
-  ionViewWillLeave() {
-    this._chatSubscription.unsubscribe();
-    this.db.list('/home').push({
-      specialMessage: true,
-      message: `${this.email} is gone offline`
-    });
-    }
-}
+  }
