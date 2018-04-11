@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Platform, ToastController, AlertController } from 'ionic-angular';
+import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { LogIn } from '../pages/login/login';
@@ -9,9 +9,8 @@ import { LogIn } from '../pages/login/login';
 })
 export class MyApp {
 
-  rootPage: any = LogIn; // Want the app to start on the assignments tab so set that to the root page 
-
-  constructor(public platform: Platform, private toastCtrl: ToastController, private alertCtrl: AlertController) {
+  rootPage: any = LogIn; // Want the app to start on the login page
+  constructor(public platform: Platform) {
     this.initializeApp();
     
   }

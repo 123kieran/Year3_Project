@@ -15,14 +15,14 @@
 <ion-content padding>
   <div id="chatMessages">
     <div *ngFor="let message of messages" [class]="message.specialMessage ? 'message special' : 'message'">
-      <div [class]="message.newemail == newemail ? 'innerMessage messageRight' : 'innerMessage messageLeft'">
-        <div class="newemail">{{ message.email }}</div>
+      <div [class]="message.email == email ? 'innerMessage messageRight' : 'innerMessage messageLeft'">
+        <div class="email">{{ message.email }}</div>
         <div class="messageContent">{{ message.message }}</div>
       </div>
     </div>
   </div>
 
-</ion-content>
+</ion-content> 
 
 <ion-footer>
     <div id="footer">

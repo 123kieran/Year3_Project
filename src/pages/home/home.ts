@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {  NavController, NavParams } from 'ionic-angular';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-
+import { AngularFireDatabase } from 'angularfire2/database';
+//import { TabsPage } from '../tabs/tabs';
 
  
 //@IonicPage()
@@ -10,8 +10,9 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
   templateUrl: 'home.html',
 })
 export class Home {
-  public user = {email: ''};
- // user : string = '';
+ // public loggedin = this.navParams.get('email')
+ // public user = {email: ''};
+  email : string = '';
   message : string = '';
   s;
   _chatSubscription;
@@ -20,7 +21,7 @@ export class Home {
 
 
   constructor(public db:AngularFireDatabase,public navCtrl: NavController, public navParams: NavParams){
-    this.user.email = this.navParams.get('email');
+    this.email = this.navParams.get('email');
   this._chatSubscription = this.db.list('/home').subscribe(data =>{
     this.messages=data;
     });
@@ -28,7 +29,7 @@ export class Home {
 
 sendMessage() {
      this.db.list('/home').push({
-      email: this.user.email,
+      email: this.email,
        message: this.message
      }).then( () =>{
       //message  is sent
@@ -41,7 +42,7 @@ sendMessage() {
    ionViewDidLoad(){
      this.db.list('/home').push({
      specialMessage: true,
-     message: `${this.user.email} has joined the room`
+     message: `${this.email} is active`
    });
 }
 
@@ -49,7 +50,7 @@ sendMessage() {
     this._chatSubscription.unsubscribe();
     this.db.list('/home').push({
       specialMessage: true,
-      message: `${this.user.email} has left the room`
+      message: `${this.email} is gone offline`
     });
     }
 }

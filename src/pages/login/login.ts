@@ -54,10 +54,10 @@ export class LogIn {
         method: AuthMethods.Password
     }).then((authData) => {
       this.loader.dismiss();
-      this.navCtrl.setRoot(TabsPage,Home);
+      this.navCtrl.setRoot(Home);
       this.navCtrl.push(Home, {
-        email, newemail //push the email and database name (newemail) to home page for reference
-      });
+        email //push the email and database name (newemail) to home page for reference
+      }); 
     }).catch((error) => {
       this.showError(error); // if log in is unsuccessful show error
     });
