@@ -64,6 +64,9 @@
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
       "cordova-sqlite-storage": {}
-    }
+    },
+    "platforms": [
+      "android"
+    ]
   }
 }
