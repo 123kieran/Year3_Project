@@ -10,6 +10,8 @@
     <ion-title>ChatApp</ion-title>
   </ion-navbar>
 
+  <button class="signOut" ion-button color="green" (click)="signOut()">SignOut</button>
+
 </ion-header>
 
 <ion-content padding>
@@ -29,4 +31,5 @@
       <div class="elem"><ion-input type="text" [(ngModel)]="message"></ion-input></div>
       <div class="elem"><button ion-button icon-only (click)="sendMessage()"><ion-icon name="send"></ion-icon> </button></div>
     </div>
+    
 </ion-footer>

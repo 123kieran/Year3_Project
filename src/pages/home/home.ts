@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {  NavController, NavParams } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { TabsPage } from '../tabs/tabs';
+import { LogIn } from '../login/login';
 
  
 //@IonicPage()
@@ -12,6 +13,8 @@ import { TabsPage } from '../tabs/tabs';
 export class Home {
  // public loggedin = this.navParams.get('email')
  // public user = {email: ''};
+// public email =  this.navParams.get('email');
+
   email : string = '';
   message : string = '';
   s;
@@ -25,6 +28,11 @@ export class Home {
   this._chatSubscription = this.db.list('/home').subscribe(data =>{
     this.messages=data;
     });
+}
+
+signOut(){
+  this.navCtrl.push(LogIn);
+
 }
 
 sendMessage() {

@@ -41,14 +41,14 @@ export class LogIn {
   public login() {
     let email = this.user.email; // example@email.com, original email address
     this.showLoading();
- 
+    //this.navCtrl.push(Home, {email});
     // Attempt to log the user in and push to home page
     this.auth.login(this.user, {
       provider: AuthProviders.Password,
         method: AuthMethods.Password
     }).then((authData) => {
       this.loader.dismiss();
-      this.navCtrl.push(Home, {email});  //push the email to home page
+      this.navCtrl.push(RoomsPage, {email});  //push the email to home page
        this.navCtrl.setRoot(RoomsPage);
     
     
