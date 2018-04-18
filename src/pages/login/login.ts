@@ -47,13 +47,13 @@ export class LogIn {
     }).then((authData) => {
       this.loader.dismiss();
      
-     this.navCtrl.setRoot(RoomsPage);
-    
+     this.navCtrl.setRoot(Home);
+     this.navCtrl.push(Home, {email});  //push the email to home page
      
     }).catch((error) => {
       this.showError(error); // if log in is unsuccessful show error
     });
-    this.navCtrl.push(Home, {email});  //push the email to home page
+   
   } // end log in
 
 // Forgot password
