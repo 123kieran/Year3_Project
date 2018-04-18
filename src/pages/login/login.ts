@@ -4,7 +4,7 @@ import { AngularFireAuth, AuthProviders, AuthMethods } from 'angularfire2';
 //import { Home } from '../home/home';
 import { CreateUser } from '../create-user/create-user';
 import firebase from 'firebase'; // for password reset
-import { TabsPage } from '../tabs/tabs';
+
 import { Home } from '../home/home';
 import { RoomsPage } from '../rooms/rooms';
 import { AboutPage } from '../about/about';

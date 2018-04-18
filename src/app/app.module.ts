@@ -5,7 +5,6 @@ import { MyApp } from './app.component';
 import { Home } from '../pages/home/home';
 import { LogIn } from '../pages/login/login';
 import { CreateUser } from '../pages/create-user/create-user';
-import { TabsPage } from '../pages/tabs/tabs';
 import { AboutPage } from '../pages/about/about';
 import { RoomsPage } from '../pages/rooms/rooms';
 // Firebase / AngularFire2 Stuff
@@ -33,7 +32,6 @@ export const firebaseConfig = {
     Home,
     LogIn,
     CreateUser,
-    TabsPage,
     AboutPage,
     RoomsPage,
 
@@ -48,7 +46,6 @@ export const firebaseConfig = {
     Home,
     LogIn,
     CreateUser,
-    TabsPage,
     AboutPage,
     RoomsPage,
  
