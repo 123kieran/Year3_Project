@@ -45,6 +45,7 @@ sendMessage() {
       //error
     });
     this.message='';
+  
    }
 
   }
