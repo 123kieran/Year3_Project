@@ -7,7 +7,7 @@ import { LogIn } from '../pages/login/login';
 import { CreateUser } from '../pages/create-user/create-user';
 import { TabsPage } from '../pages/tabs/tabs';
 import { AboutPage } from '../pages/about/about';
-
+import { RoomsPage } from '../pages/rooms/rooms';
 // Firebase / AngularFire2 Stuff
 // Adapted from https://www.joshmorony.com/building-a-crud-ionic-2-application-with-firebase-angularfire/
 
@@ -35,6 +35,7 @@ export const firebaseConfig = {
     CreateUser,
     TabsPage,
     AboutPage,
+    RoomsPage,
 
   ],
   imports: [
@@ -49,6 +50,7 @@ export const firebaseConfig = {
     CreateUser,
     TabsPage,
     AboutPage,
+    RoomsPage,
  
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler} ]

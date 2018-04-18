@@ -3,10 +3,11 @@ import { Platform, NavController, NavParams, AlertController, LoadingController,
 import { AngularFireAuth, AuthProviders, AuthMethods } from 'angularfire2';
 //import { Home } from '../home/home';
 import { CreateUser } from '../create-user/create-user';
-
 import firebase from 'firebase'; // for password reset
 import { TabsPage } from '../tabs/tabs';
 import { Home } from '../home/home';
+import { RoomsPage } from '../rooms/rooms';
+import { AboutPage } from '../about/about';
 // AngularFireAuth allows log in / sign up features
 
 // Log In functions adapted from 
@@ -18,7 +19,6 @@ import { Home } from '../home/home';
 })
 export class LogIn {
 
-  newemail: string = '';
 
   loader: any;
   public user = {email: '', password: ''};
@@ -41,12 +41,6 @@ export class LogIn {
   public login() {
     let email = this.user.email; // example@email.com, original email address
     this.showLoading();
-
-    // Get Database name - Firebase doesn't allow $ [ ] # @ . chars, got rid of @ too
-    // can't have [] within character class[$#@\.] for replacing so just took it out, [] aren't valid in emails anyway (from quick online research)
-   let newemail = email.replace(/[$#@\.]/g, ",").toLowerCase(); // commas aren't valid in any email address but are allowed in firebase, credit to http://stackoverflow.com/questions/31904123/good-way-to-replace-invalid-characters-in-firebase-keys
-    // Replace multiple chars in one go adapted from http://stackoverflow.com/questions/16576983/replace-multiple-characters-in-one-replace-call
-    // toLowerCase used to prevent duplicate databases - emails aren't case sensitive, firebase DB names are
  
     // Attempt to log the user in and push to home page
     this.auth.login(this.user, {
@@ -54,10 +48,10 @@ export class LogIn {
         method: AuthMethods.Password
     }).then((authData) => {
       this.loader.dismiss();
-      this.navCtrl.setRoot(Home);
-      this.navCtrl.push(Home, {
-        email //push the email and database name (newemail) to home page for reference
-      }); 
+      this.navCtrl.push(Home, {email});  //push the email to home page
+       this.navCtrl.setRoot(RoomsPage);
+    
+    
     }).catch((error) => {
       this.showError(error); // if log in is unsuccessful show error
     });

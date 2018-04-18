@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {  NavController, NavParams } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
-//import { TabsPage } from '../tabs/tabs';
+import { TabsPage } from '../tabs/tabs';
 
  
 //@IonicPage()
