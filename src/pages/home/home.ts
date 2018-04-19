@@ -10,9 +10,7 @@ import { LogIn } from '../login/login';
   templateUrl: 'home.html',
 })
 export class Home {
- // public loggedin = this.navParams.get('email')
- // public user = {email: ''};
-// public email =  this.navParams.get('email');
+
 
   email : string = '';
   message : string = '';
