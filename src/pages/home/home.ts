@@ -10,16 +10,12 @@ import { LogIn } from '../login/login';
   templateUrl: 'home.html',
 })
 export class Home {
-
-
-  email : string = '';
+  email : any;
   message : string = '';
   s;
   _chatSubscription;
   messages:string[];
   
-
-
   constructor(public db:AngularFireDatabase,public navCtrl: NavController, public navParams: NavParams){
     this.email = this.navParams.get('email');
   this._chatSubscription = this.db.list('/home').subscribe(data =>{

@@ -43,13 +43,13 @@ export class LogIn {
     this.showLoading();
     this.auth.login(this.user, {
       provider: AuthProviders.Password,
-        method: AuthMethods.Password
+        method: AuthMethods.Password 
     }).then((authData) => {
       this.loader.dismiss();
-     
-     this.navCtrl.setRoot(Home);
-     this.navCtrl.push(Home, {email});  //push the email to home page
-     
+     // localStorage.setItem('email',email);
+     this.navCtrl.setRoot(RoomsPage);
+   //  this.navCtrl.push(RoomsPage);  //push the email to home page
+     localStorage.setItem('email',email);
     }).catch((error) => {
       this.showError(error); // if log in is unsuccessful show error
     });
