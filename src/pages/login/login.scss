@@ -16,13 +16,27 @@
     padding: 0px;
 }
 
-.tracker{
+.memo{
     font-size: small;
     width: 100%;
 }
 
-button.login {
-    margin-top: 75px;
+button.logintv {
+    margin-top: 50px;
+    width: 60%;
+    margin-left: 20%;    
+    margin-right: 20%;
+}
+
+button.loginsport {
+    margin-top: 10px;
+    width: 60%;
+    margin-left: 20%;    
+    margin-right: 20%;
+}
+
+button.loginmusic {
+    margin-top: 10px;
     width: 60%;
     margin-left: 20%;    
     margin-right: 20%;

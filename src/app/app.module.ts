@@ -2,10 +2,10 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { Home } from '../pages/home/home';
+import { TvPage } from '../pages/tv/tv';
 import { LogIn } from '../pages/login/login';
 import { CreateUser } from '../pages/create-user/create-user';
-import { AboutPage } from '../pages/about/about';
+import { MusicPage } from '../pages/music/music';
 import { SportPage } from '../pages/sport/sport';
 // Firebase / AngularFire2 Stuff
 // Adapted from https://www.joshmorony.com/building-a-crud-ionic-2-application-with-firebase-angularfire/
@@ -29,10 +29,10 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [   
     MyApp,
-    Home,
+    TvPage,
     LogIn,
     CreateUser,
-    AboutPage,
+    MusicPage,
     SportPage,
 
   ],
@@ -43,10 +43,10 @@ export const firebaseConfig = {
   bootstrap: [IonicApp],
   entryComponents: [    // entryComponents tells the offline template compiler to compile the components and create factories for them
     MyApp,
-    Home,
+    TvPage,
     LogIn,
     CreateUser,
-    AboutPage,
+    MusicPage,
     SportPage,
  
   ],

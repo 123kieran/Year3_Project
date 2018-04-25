@@ -5,9 +5,9 @@ import { AngularFireAuth, AuthProviders, AuthMethods } from 'angularfire2';
 import { CreateUser } from '../create-user/create-user';
 import firebase from 'firebase'; // for password reset
 
-import { Home } from '../home/home';
+import { TvPage } from '../tv/tv';
 import { SportPage } from '../sport/sport';
-import { AboutPage } from '../about/about';
+import { MusicPage } from '../music/music';
 // AngularFireAuth allows log in / sign up features
 
 // Log In functions adapted from 
@@ -38,7 +38,7 @@ export class LogIn {
   }
 
 // User Log In
-  public login() {
+  public logintv() {
     let email = this.user.email; // example@email.com, original email address
     this.showLoading();
     this.auth.login(this.user, {
@@ -47,8 +47,8 @@ export class LogIn {
     }).then((authData) => {
       this.loader.dismiss();
      // localStorage.setItem('email',email);
-     this.navCtrl.setRoot(Home);
-     this.navCtrl.push(Home,{email});  //push the email to home page
+     this.navCtrl.setRoot(TvPage);
+     this.navCtrl.push(TvPage,{email});  //push the email to home page
     // localStorage.setItem('email',email);
     }).catch((error) => {
       this.showError(error); // if log in is unsuccessful show error
@@ -77,6 +77,26 @@ public loginsport() {
  
 } // end log in
 
+
+
+// User Log In
+public loginmusic() {
+  let email = this.user.email; // example@email.com, original email address
+  this.showLoading();
+  this.auth.login(this.user, {
+    provider: AuthProviders.Password,
+      method: AuthMethods.Password 
+  }).then((authData) => {
+    this.loader.dismiss();
+   // localStorage.setItem('email',email);
+   this.navCtrl.setRoot(MusicPage);
+  this.navCtrl.push(MusicPage,{email});  //push the email to home page
+  // localStorage.setItem('email',email);
+  }).catch((error) => {
+    this.showError(error); // if log in is unsuccessful show error
+  });
+ 
+} // end log in
 
 
 

@@ -8,7 +8,7 @@
 <ion-header>
   <ion-navbar color="blue">
     <ion-title style="width: 100%">
-      ChatApp :<em class="tracker"> Chat with friends!</em>
+      ChatApp :<em class="memo"> Public Chat Rooms!</em>
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -27,9 +27,10 @@
     </ion-item>
   </form>
 
-  <button class="login" ion-button color="green" (click)="login(user.email)">Login</button>
-
+  <button class="logintv" ion-button color="green" (click)="logintv(user.email)">Login Tv Entertainment</button>
   <button class="loginsport" ion-button color="green" (click)="loginsport(user.email)">Login Sport</button>
+  <button class="loginmusic" ion-button color="green" (click)="loginmusic(user.email)">Login Music</button>
+
   <div class="create">
     <a color="red" (click)="openRegisterPage()"><u>Create New Account</u></a>
     <p>  </p>
