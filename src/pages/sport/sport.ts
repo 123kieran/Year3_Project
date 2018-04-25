@@ -10,6 +10,7 @@ import { LogIn } from '../login/login';
   templateUrl: 'sport.html',
 })
 export class SportPage {
+  //variables
   email : any;
   message : string = '';
   time:any;
@@ -23,18 +24,17 @@ export class SportPage {
     this.messages=data;
     });
 }
-
+//signing out 
 signOut(){
-  this.navCtrl.push(LogIn);
-
+  this.navCtrl.push(LogIn); //push to login page
 }
 
 sendMessage() {
-
+//Variables
   var now = new Date();
   var hrs = now.getHours();
   var mins = now.getMinutes();
-
+//adding AM or PM
  if(hrs<12){
       if(mins<10 || mins == 0){
         this.time = hrs+":"+"0"+mins+" "+"AM";          
@@ -43,7 +43,6 @@ sendMessage() {
         this.time = hrs+":"+mins+" "+"AM";     
       }
   }
-
   if(hrs == 12){
       if(mins<10 || mins == 0){
         this.time = hrs+":"+"0"+mins+" "+"PM";          
@@ -52,7 +51,6 @@ sendMessage() {
         this.time = hrs+":"+mins+" "+"PM";     
       }
   }
-
   if(hrs>12){
       hrs=hrs-12;
       if(mins<10 || mins == 0){
@@ -61,13 +59,7 @@ sendMessage() {
       else{
            this.time = hrs+":"+mins+" "+"PM";     
       }
-
-
-
-
-
-
-
+      //pushing to database
      this.db.list('/sport').push({
       email: this.email,
        message: this.message,
@@ -78,9 +70,6 @@ sendMessage() {
       //error
     });
     this.message='';
-  
    }
-
   }
-
 }
