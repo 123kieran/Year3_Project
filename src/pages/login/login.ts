@@ -6,7 +6,7 @@ import { CreateUser } from '../create-user/create-user';
 import firebase from 'firebase'; // for password reset
 
 import { Home } from '../home/home';
-import { RoomsPage } from '../rooms/rooms';
+import { SportPage } from '../sport/sport';
 import { AboutPage } from '../about/about';
 // AngularFireAuth allows log in / sign up features
 
@@ -47,14 +47,52 @@ export class LogIn {
     }).then((authData) => {
       this.loader.dismiss();
      // localStorage.setItem('email',email);
-     this.navCtrl.setRoot(RoomsPage);
-   //  this.navCtrl.push(RoomsPage);  //push the email to home page
-     localStorage.setItem('email',email);
+     this.navCtrl.setRoot(Home);
+     this.navCtrl.push(Home,{email});  //push the email to home page
+    // localStorage.setItem('email',email);
     }).catch((error) => {
       this.showError(error); // if log in is unsuccessful show error
     });
    
   } // end log in
+
+
+
+// User Log In
+public loginsport() {
+  let email = this.user.email; // example@email.com, original email address
+  this.showLoading();
+  this.auth.login(this.user, {
+    provider: AuthProviders.Password,
+      method: AuthMethods.Password 
+  }).then((authData) => {
+    this.loader.dismiss();
+   // localStorage.setItem('email',email);
+   this.navCtrl.setRoot(SportPage);
+  this.navCtrl.push(SportPage,{email});  //push the email to home page
+  // localStorage.setItem('email',email);
+  }).catch((error) => {
+    this.showError(error); // if log in is unsuccessful show error
+  });
+ 
+} // end log in
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Forgot password
   forgotPassword(){
