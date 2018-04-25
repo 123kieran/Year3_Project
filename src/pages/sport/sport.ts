@@ -12,6 +12,7 @@ import { LogIn } from '../login/login';
 export class SportPage {
   email : any;
   message : string = '';
+  time:any;
   s;
   _chatSubscription;
   messages:string[];
@@ -29,9 +30,48 @@ signOut(){
 }
 
 sendMessage() {
+
+  var now = new Date();
+  var hrs = now.getHours();
+  var mins = now.getMinutes();
+
+ if(hrs<12){
+      if(mins<10 || mins == 0){
+        this.time = hrs+":"+"0"+mins+" "+"AM";          
+      }
+      else{
+        this.time = hrs+":"+mins+" "+"AM";     
+      }
+  }
+
+  if(hrs == 12){
+      if(mins<10 || mins == 0){
+        this.time = hrs+":"+"0"+mins+" "+"PM";          
+      }
+      else{
+        this.time = hrs+":"+mins+" "+"PM";     
+      }
+  }
+
+  if(hrs>12){
+      hrs=hrs-12;
+      if(mins<10 || mins == 0){
+           this.time = hrs+":"+"0"+mins+" "+"PM";          
+      }
+      else{
+           this.time = hrs+":"+mins+" "+"PM";     
+      }
+
+
+
+
+
+
+
      this.db.list('/sport').push({
       email: this.email,
-       message: this.message
+       message: this.message,
+       time: this.time
      }).then( () =>{
       //message  is sent
      }).catch( () =>{
@@ -42,3 +82,5 @@ sendMessage() {
    }
 
   }
+
+}
