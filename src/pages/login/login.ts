@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { Platform, NavController, NavParams, AlertController, LoadingController, ToastController } from 'ionic-angular';
 import { AngularFireAuth, AuthProviders, AuthMethods } from 'angularfire2';
-//import { Home } from '../home/home';
+// AngularFireAuth allows log in / sign up features
 import { CreateUser } from '../create-user/create-user';
 import firebase from 'firebase'; // for password reset
 
 import { TvPage } from '../tv/tv';
 import { SportPage } from '../sport/sport';
 import { MusicPage } from '../music/music';
-// AngularFireAuth allows log in / sign up features
+
 
 // Log In functions adapted from 
 // https://devdactic.com/ionic-2-firebase/
@@ -46,10 +46,8 @@ export class LogIn {
         method: AuthMethods.Password 
     }).then((authData) => {
       this.loader.dismiss();
-     // localStorage.setItem('email',email);
      this.navCtrl.setRoot(TvPage);
-     this.navCtrl.push(TvPage,{email});  //push the email to home page
-    // localStorage.setItem('email',email);
+     this.navCtrl.push(TvPage,{email});  //push the email to tv page
     }).catch((error) => {
       this.showError(error); // if log in is unsuccessful show error
     });
@@ -67,10 +65,8 @@ public loginsport() {
       method: AuthMethods.Password 
   }).then((authData) => {
     this.loader.dismiss();
-   // localStorage.setItem('email',email);
    this.navCtrl.setRoot(SportPage);
-  this.navCtrl.push(SportPage,{email});  //push the email to home page
-  // localStorage.setItem('email',email);
+  this.navCtrl.push(SportPage,{email});  //push the email to sport page
   }).catch((error) => {
     this.showError(error); // if log in is unsuccessful show error
   });
@@ -88,31 +84,13 @@ public loginmusic() {
       method: AuthMethods.Password 
   }).then((authData) => {
     this.loader.dismiss();
-   // localStorage.setItem('email',email);
    this.navCtrl.setRoot(MusicPage);
-  this.navCtrl.push(MusicPage,{email});  //push the email to home page
-  // localStorage.setItem('email',email);
+  this.navCtrl.push(MusicPage,{email});  //push the email to music page
   }).catch((error) => {
     this.showError(error); // if log in is unsuccessful show error
   });
  
 } // end log in
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Forgot password
   forgotPassword(){
