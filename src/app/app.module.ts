@@ -13,8 +13,6 @@ import { SportPage } from '../pages/sport/sport';
 // Import the AF2 Module
 import { AngularFireModule } from 'angularfire2';
 
-// AF2 Settings
-// Use this to store config object, pass it into AngularFireModule.initialiseApp etc 
 // Info taken from my firebase account
 export const firebaseConfig = {
   apiKey: "AIzaSyCy4fdfkAyf2h_GZr1LlhB25z5P0Ggo5hs",
