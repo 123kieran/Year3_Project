@@ -1,5 +1,7 @@
 # Ionic V3 ChatApp
 
+Please see Wiki pages for documentation
+
 ## How To Install And Run 
 
 **1. Clone the Repository**
