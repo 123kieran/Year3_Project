@@ -18,7 +18,7 @@ eg. > cd Year3_Project
 **3. Run the program**
 
 > npm install
-```bash
+
 > ionic serve
 
-The Program will run at- localhost:8100
+**The Program will run at- localhost:8100**
