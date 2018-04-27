@@ -2,9 +2,20 @@
 
 ## How To Install And Run 
 
-* Download zip file from github 
-* Extract file onto desktop or hard drive 
-* Navigate to master folder and use command prompt to run the project 
-* type "Ionic Serve" 
-* When prompted to instal latest angular dependencies select "Y" (yes) 
-* Project will open in browser window
+**1. Clone the Repository**
+```bash
+> git clone https://github.com/123kieran/Year3_Project
+```
+**2. Change Directory to the Folder**
+
+```bash
+Open the terminal/command line and navigate into the folder 
+eg. > cd Year3_Project
+```
+
+**3. Run the program**
+
+> npm install
+> ionic serve
+
+The Program will run at- localhost:8100
